@@ -1,0 +1,134 @@
+<app-header></app-header>
+<div class="search-form">
+<div class="container">
+  <div class="form-wraper">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+<div class="row m-0">
+<div class="col-12 col-sm-12 col-md-12 col-lg-3 px-lg-1">
+  <div class="form-group ">
+    <label>Destination</label> 
+    <input class="form-control"  formControlName="destination" type="text"  list="dynmicUserIds" [ngClass]="{ 'is-invalid': submitted && f.destination.errors }" />
+<datalist id="dynmicUserIds" >
+   <option *ngFor="let items of destinationarr" >{{items.name}}</option>
+</datalist> 
+<div *ngIf="submitted && f.destination.errors" class="invalid-feedback">
+  <div *ngIf="f.destination.errors.required">Destination is required</div>
+</div>
+    <!-- <select class="form-control">
+      <option *ngFor="let items of hotels">{{items.name}}</option> 
+    </select> -->
+  </div>
+
+</div>
+<div class="col-12 col-sm-12 col-md-12 col-lg-3 px-lg-1">
+  <div class="form-group">
+    <label>Check-In</label> 
+    <my-date-picker name="checkin" class="date-pick" formControlName="checkin" [ngClass]="{ 'is-invalid': submitted && f.checkin.errors }" ></my-date-picker>
+  </div>
+  <div *ngIf="submitted && f.checkin.errors" class="invalid-feedback">
+    <div *ngIf="f.checkin.errors.required">This is required</div>
+  </div>
+</div>
+<div class="col-12 col-sm-12 col-md-12 col-lg-3 px-lg-1">
+  <div class="form-group">
+    <label>Check-Out</label> 
+    <my-date-picker name="checkout" class="date-pick" formControlName="checkout" [ngClass]="{ 'is-invalid': submitted && f.checkout.errors }" ></my-date-picker>
+  </div>
+  <div *ngIf="submitted && f.checkout.errors" class="invalid-feedback">
+    <div *ngIf="f.checkout.errors.required">This is required</div>
+  </div>
+</div>
+<div class="col-12 col-sm-12 col-md-12 col-lg-3">
+  <div class="row align-items-end">
+    <div class="col-6 col-sm-6 col-md-4 col-lg-4 px-lg-1">
+      <div class="form-group">
+        <label>Adults</label> 
+        <input  class="form-control" formControlName="adult"  type="number" [ngClass]="{ 'is-invalid': submitted && f.adult.errors }">
+        <div *ngIf="submitted && f.adult.errors" class="invalid-feedback">
+          <div *ngIf="f.adult.errors.required">This is required</div>
+        </div>
+      </div>
+     
+    </div>
+    <div class="col-6 col-sm-6 col-md-4 col-lg-4 px-lg-1">
+      <div class="form-group">
+        <label>Children</label> 
+        <input  class="form-control" formControlName="child" type="number" [ngClass]="{ 'is-invalid': submitted && f.child.errors }">
+        <div *ngIf="submitted && f.child.errors" class="invalid-feedback">
+          <div *ngIf="f.child.errors.required">This is required</div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col-12 col-sm-12 col-md-4 col-lg-4 px-lg-1">
+      <div class="form-group">
+        <label></label> 
+        <button  class="form-control search-btn" >Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+</form>
+</div>
+<div class="content-sec">
+  <div class="first-heading">
+    Travel With<span>Travolta</span>
+  </div>
+  <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown
+    Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown
+   </p>
+   <!-- <ul>
+    <li *ngFor="let items of hotels">{{items.name}}</li>
+  </ul> -->
+</div>
+
+ <!-- <div class="row">
+<div class="col-12 col-sm-12 col-md-12 col-lg-12">
+  <div class="hotel-row" *ngIf="selectedhotel"  >
+      <div class="hotel-list-left">
+          <div class="hotel-list-icon">
+              <img src="../../../assets/hotel.png" alt="icon">
+          </div>
+          <div class="hotel-detail">
+          <h6>{{selectedhotel}}</h6>
+          <div><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> </div>
+         <div class="m-0">240 West 73rd Street New York</div> 
+      </div>
+      </div>
+      <div class="hotel-list-right">
+         <button class="donation-btn  search-btn" >Show Details</button>
+      </div>
+  </div>
+
+
+</div>
+</div>  -->
+
+
+ <div class="row">
+  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="hotel-row" *ngFor="let items of selectedhotel"  >
+        <div class="hotel-list-left">
+            <div class="hotel-list-icon">
+                <img src="../../../assets/hotel.png" alt="icon">
+            </div>
+            <div class="hotel-detail">
+            <h6>{{items.name}}</h6>
+            <div><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> </div>
+           <div class="m-0">{{items.address}} | {{items.city}} | {{items.country_code}}</div> 
+        </div>
+        </div>
+        <div class="hotel-list-right">
+           <button class="donation-btn  search-btn" >Show Details</button>
+        </div>
+    </div>
+  
+  
+  </div>
+  </div> 
+
+
+</div> 

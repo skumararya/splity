@@ -1,0 +1,95 @@
+<app-header></app-header>
+<div class="container">
+    <div class="form-wraper pb-5">
+  <div class="row m-0">
+     <div class="col-12 col-sm-12 col-md-12 col-lg-3" [ngClass]="{ 'slideleft': !toggleClass2 }">
+         <div class="filter-sec">
+             <div class="heading2 mb-4">Filter Box</div>
+             <div class="form-group">
+                <label>Filter by Hotel Name</label> 
+                <input  class="form-control"  [(ngModel)]= 'hotelsearch'   type="text" />
+              </div>
+              <div class="heading3 mb-2">Filter by Rating</div>
+              <div class=" mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+              <div class=" mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+              <div class=" mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+              <div class=" mb-1"><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+              <div class=" mb-1"><i class="fa fa-star"></i></div>
+         </div>
+     </div> 
+     <div class="col-12 col-sm-12 col-md-12 col-lg-9">
+         <div class="toggle-icon-sec"  [ngClass]="{ 'grid-view': !toggleClass }">
+             <i class="fa fa-indent" (click)="toggleClass2 = !toggleClass2"  aria-hidden="true"></i> <i class="fa fa-th-large" (click)="toggleClass = !toggleClass" aria-hidden="true"></i></div>
+        <div class="hotel-row" *ngFor="let items of hotels | module:hotelsearch"  >
+            <div class="hotel-list-left">
+                <div class="hotel-list-icon">
+                    <img src="../../../assets/hotel.png" alt="icon">
+                </div>
+                <div class="hotel-detail">
+                <h6>{{items.name}}</h6>
+                <div> 
+                   
+                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> 
+                    {{items.hotel_rating}}
+                </div>
+                <div class="m-0">{{items.address}} | {{items.city}} | {{items.country_code}}</div>
+            </div>
+            </div>
+            <div class="hotel-list-right">
+               <button class="donation-btn  search-btn" >Show Details</button>
+            </div>
+        </div>
+         
+        
+        
+       <!-- <div class="hotel-row">
+            <div class="hotel-list-left">
+                <div class="hotel-list-icon">
+                    <img src="../../../assets/hotel.png" alt="icon">
+                </div>
+                <div class="hotel-detail">
+                <h6>Hotel Name</h6>
+                <div><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+                <div class="m-0">Address State Country</div>
+            </div>
+            </div>
+            <div class="hotel-list-right">
+               <button class="donation-btn  search-btn" >Show Details</button>
+            </div>
+        </div>
+        <div class="hotel-row">
+            <div class="hotel-list-left">
+                <div class="hotel-list-icon">
+                    <img src="../../../assets/hotel.png" alt="icon">
+                </div>
+                <div class="hotel-detail">
+                <h6>Hotel Name</h6>
+                <div><i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                <div class="m-0">Address State Country</div>
+            </div>
+            </div>
+            <div class="hotel-list-right">
+               <button class="donation-btn  search-btn" >Show Details</button>
+            </div>
+        </div>
+        <div class="hotel-row">
+            <div class="hotel-list-left">
+                <div class="hotel-list-icon">
+                    <img src="../../../assets/hotel.png" alt="icon">
+                </div>
+                <div class="hotel-detail">
+                <h6>Hotel Name</h6>
+                <div><i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> </div>
+                <div class="m-0">Address State Country</div>
+            </div>
+            </div>
+            <div class="hotel-list-right">
+               <button class="donation-btn  search-btn" >Show Details</button>
+            </div>
+        </div>-->
+
+     </div>
+             </div>
+        </div>
+    </div>
+    
